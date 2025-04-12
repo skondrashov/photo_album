@@ -10,7 +10,7 @@ export default [
     },
   },
   {
-    files: ["public/*.js"],
+    files: ["docs/*.js"],
     languageOptions: {
       globals: globals.browser,
     },
