@@ -36,7 +36,11 @@ const init = () => {
     return;
   }
 
-  elements.description.innerHTML = subject.description;
+  elements.description.innerHTML = `
+${subject.name}
+<br/>
+${subject.description}
+`;
 
   elements.images.innerHTML = "";
   for (const src of subject.images) {

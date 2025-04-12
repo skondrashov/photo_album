@@ -4,4 +4,9 @@ export default {
     description: "Ya boy",
     images: ["picture.jpg"],
   },
+  someone_else: {
+    name: "Someone Else",
+    description: "Another one",
+    images: ["tree.jpg"],
+  },
 };
