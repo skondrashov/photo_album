@@ -1,4 +1,4 @@
-import data from "/data.js";
+import data from "./data.js";
 
 const pathname = window.location.pathname
 const BASE_PATH = pathname.slice(0, pathname.lastIndexOf("/")) + '/';
