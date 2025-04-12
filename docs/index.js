@@ -1,5 +1,8 @@
 import data from "/data.js";
 
+const pathname = window.location.pathname
+const BASE_PATH = pathname.slice(0, pathname.lastIndexOf("/")) + '/';
+
 const elements = {};
 for (const id of ["home", "navigation", "description", "images"]) {
   elements[id] = document.getElementById(id)
@@ -18,18 +21,18 @@ const init = () => {
     elements.navigation.appendChild(element);
   }
 
-  if (window.location.pathname === "/") {
+  const pathname = window.location.pathname
+  if (pathname === BASE_PATH) {
     elements.description.innerHTML =
       "Select a subject from the navigation pane!";
     return;
   }
 
-  const id = window.location.pathname.substring(1);
-  const subject = data[id];
-  console.log("window.location.pathname", window.location.pathname);
-  console.log("subject", subject);
+  const path_parts = pathname.split('/');
+  const id = path_parts[path_parts.length - 1];
+  const subject = data[id]
   if (!subject) {
-    navigate("/");
+    navigate(BASE_PATH, false);
     return;
   }
 
@@ -38,14 +41,14 @@ const init = () => {
   elements.images.innerHTML = "";
   for (const src of subject.images) {
     const element = document.createElement("img");
-    element.setAttribute("src", `img/${src}`);
+    element.setAttribute("src", `${BASE_PATH}img/${src}`);
     elements.images.appendChild(element);
   }
 };
 
-const navigate = (url) => {
+const navigate = (url, shouldInit = true) => {
   history.pushState({}, "", url);
-  init();
+  if (shouldInit) init();
 };
 
 init();

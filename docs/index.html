@@ -32,7 +32,15 @@
    </div>
    <div id="images"></div>
    <div id="description"></div>
-   <script type="module" src="index.js"></script>
+   <script id="src" type="module"></script>
+   <script>
+      const pathname = window.location.pathname
+      const BASE_PATH = pathname.slice(0, pathname.lastIndexOf("/"));
+      const scriptElement = document.getElementById('src')
+      scriptElement.setAttribute('src', `${BASE_PATH}/index.js`)
+      const homeElement = document.getElementById('home')
+      homeElement.setAttribute('href', `${BASE_PATH}/`)
+   </script>
 </body>
 
 </html>
