@@ -1,0 +1,38 @@
+<html>
+
+<head>
+   <style>
+      #sidebar {
+         height: 100%;
+         float: left;
+         padding-right: 20px;
+      }
+
+      #home {
+         display: block;
+         font-size: 1.2em;
+         padding: 5px;
+         font-weight: bolder;
+      }
+
+      #navigation a {
+         text-decoration: none;
+      }
+
+      #navigation>a:before {
+         content: '> '
+      }
+   </style>
+</head>
+
+<body>
+   <div id="sidebar">
+      <a id="home" href="/">Home</a>
+      <nav id="navigation"></nav>
+   </div>
+   <div id="images"></div>
+   <div id="description"></div>
+   <script type="module" src="index.js"></script>
+</body>
+
+</html>
